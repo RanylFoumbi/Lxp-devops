@@ -4,6 +4,9 @@ services:
       context: ./app
     env_file:
       - .env
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
     ports:
       - 8000:8000
     networks:
@@ -22,8 +25,6 @@ services:
     environment:
       POSTGRES_DB: ${DB}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
-    ports:
-      - 5432
     networks:
       - app-network
     healthcheck:
