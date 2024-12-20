@@ -68,9 +68,15 @@
 
     - name: Create .env file from template
       template:
-        src: ./templates/env.j2
+        src: templates/env.j2
         dest: ./src/.env
       vars:
         db: "{{ db }}"
         db_user: "{{ db_user }}"
         db_password: "{{ db_password }}"
+    
+    - name: Run docker compose
+      shell: |
+        pwd
+        cd ./src
+        sudo docker compose up -d

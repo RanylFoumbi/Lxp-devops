@@ -1,4 +1,1 @@
-docker run --rm -v .:/ansible -w /ansible alpine/ansible sh -c "
-ansible-galaxy collection install azure.azcollection &&
-ansible-playbook -i hosts.ini install_docker.yml
-"
+ansible-playbook -i hosts.ini play.yml --extra-vars "db=test db_user=postgres db_password=root"
